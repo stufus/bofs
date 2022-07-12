@@ -1,6 +1,6 @@
 # BOFs
 
-This repository contains a few small BOFs that I have put together, usually on jobs, where
+This repository contains BOFs that I have put together, usually on jobs, where
 there hasn't been an easily accessible alternative.
 
 Some will have to remain internal for now, but I hope that these published ones are helpful

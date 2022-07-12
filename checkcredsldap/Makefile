@@ -1,5 +1,4 @@
 BOFNAME := checkcredsldap
-LIBINCLUDE := -l wldap32 -l netapi32 
 CC_x64 := x86_64-w64-mingw32-gcc
 CC_x86 := i686-w64-mingw32-gcc
 CC=x86_64-w64-mingw32-clang
