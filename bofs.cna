@@ -1,0 +1,33 @@
+beacon_command_register(
+"checkcredsldap", 
+"BOF: Check validity of domain credentials via LDAP", 
+"checkcredsldap <username> <password>
+
+ Example: 
+   beacon> checkcredsldap STUFUS\\domainuser domainpassword
+
+");
+
+alias checkcredsldap {
+    local('$args $username $password');
+	
+    $barch  = barch($1);
+
+    # read in the right BOF file
+    $hBofFile = openf(script_resource("checkcredsldap/checkcredsldap. $+ $barch $+ .o"));
+    $bofFileData   = readb($hBofFile, -1);
+    closef($hBofFile);
+
+    if(size(@_) < 3)
+    {
+      berror($1, beacon_command_detail("checkcredsldap"));
+      return;
+    }
+
+    $username = iff(-istrue $2, $2, "");
+    $password = iff(-istrue $3, $3, "");
+
+    $args = bof_pack($1, "zzzz", $username, $password, $domain, $hostname);
+    beacon_inline_execute($1, $bofFileData, "checkcredsldap", $args);
+}
+
