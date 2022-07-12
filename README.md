@@ -7,6 +7,7 @@ Some will have to remain internal for now, but I hope that these published ones 
 to someone.
 
 | Name | Purpose |
+| --- | ---- |
 | checkcredsldap | Test domain credentials for validity using an LDAP bind |
 
 # Author
